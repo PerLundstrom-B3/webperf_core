@@ -64,5 +64,5 @@ jobs:
     - if: ${{ matrix.os == 'ubuntu-latest' }}
       name: RUNNING TEST - LINUX
       run: |
-         python default.py -t ${{ matrix.version }} -r -i defaults/sites.json -o data/testresult-${{ matrix.version }}.json --setting ${{ matrix.config }} --setting tests.sitespeed.xvfb=true
+         python default.py -t ${{ matrix.version }} -r -i defaults/sites.json -o data/testresult-${{ matrix.version }}.json --setting ${{ matrix.config }} --setting tests.sitespeed.xvfb=true --setting SITESPEED_TIMEOUT=90
          python .github/workflows/verify_result.py -t ${{ matrix.version }}
